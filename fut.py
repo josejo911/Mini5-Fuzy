@@ -11,7 +11,8 @@ SCREEN_WIDTH = 615
 SCREEN_HEIGHT = 410
 
 
-def update_view_line((x, y), angle):
+def update_view_line(xy, angle):
+    x,y = xy
     x1 = 25*np.cos(np.deg2rad(angle))+x
     y1 = 25*np.sin(np.deg2rad(-angle))+y
     return (x1, y1)
@@ -68,7 +69,7 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 xp = np.random.random_integers(SCREEN_WIDTH, size=(2,))
 yp = np.random.random_integers(SCREEN_HEIGHT, size=(2,))
 
-player = Bit('player.png')
+player = Bit('player1.png')
 player.position(xp[0],yp[0])
 
 ball = Bit('ball.png')
@@ -80,7 +81,7 @@ red.position(SCREEN_WIDTH-30,SCREEN_HEIGHT/2-10)
 bg = Bit('bg.jpg')
 bg.position(SCREEN_WIDTH/2,SCREEN_HEIGHT/2)
 
-goal = Bit('goal.resized.jpg')
+goal = Bit('golazo.jpg')
 goal.position(SCREEN_WIDTH/2,SCREEN_HEIGHT/2)
 
 clock = pygame.time.Clock()
